@@ -12,14 +12,17 @@ const PanoBox:FC<Props> = ({setVisible , visible}) =>{
   const divRef = createRef<HTMLDivElement>();
 
   useEffect(()=>{
-    console.log(divRef.current)
-    if(visible){
-      console.log('visible')
-      divRef.current?.classList.add('modal_absolute');
-    }
-    else divRef.current?.classList.remove('modal_absolute_unvisible');
-
-  },[visible,divRef])
+    //console.log(divRef.current)
+   if(visible){
+     //console.log('visible')
+     divRef.current?.classList.remove('modal_absolute_unvisible');
+     divRef.current?.classList.add('modal_absolute');
+   }
+   else {
+     divRef.current?.classList.remove('modal_absolute');
+     divRef.current?.classList.add('modal_absolute_unvisible');
+ }
+  },[visible])
 
   return(
     <Fragment>
@@ -29,7 +32,9 @@ const PanoBox:FC<Props> = ({setVisible , visible}) =>{
           <div className="dot_Menu_Container" onClick={() => setVisible(!visible)}>
             <span className="dot_Menu_Item"></span>
           </div>
-          <ModalMenu ref={divRef}/>
+
+             <ModalMenu ref={divRef}/>
+  
         </div>
     </Fragment>
   );

@@ -3,10 +3,6 @@ const PanoBox = lazy(() => import('./components/PanoBox'));
 
 const App:FC = () =>{
   const [ visible , setVisible] = useState(false);
-
-  useEffect(()=>{
-    console.log("IS visible ? " , visible)
-  },[visible]);
   return(
     <Fragment>
       <Suspense fallback={<>Loading...</>}>
