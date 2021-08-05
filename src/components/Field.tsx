@@ -3,15 +3,16 @@ import { FC } from 'react';
 interface Props{
     text:string;
     className:string;
+    callback:any;
 }
 const defaultProps = {
     text: "test",
-    className: "test"
+    className: "test",
   };
 
-const Field:FC<Props> =({text,className}) => {
+const Field:FC<Props> =({text,className,callback}) => {
   return(
-    <div className={className}>{text}</div>
+    <div onClick={callback} className={className}>{text}</div>
 );
 }
 export default Field;

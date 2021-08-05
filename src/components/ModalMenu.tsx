@@ -10,11 +10,11 @@ const ModalMenu =forwardRef<Ref, Props>((props, divRef) => {
     console.log('divREFF',divRef);
 return(
     <div ref={divRef} className="modal_absolute_unvisible">
-           <Field text="Pobierz Sferę" className="item_Menu"  />
-            <Field text="Udostępnij" className="item_Menu"  />
-            <Field text="Utwórz spacer" className="item_Menu"  />
-            <Field text="Zmień nazwę" className="item_Menu"  />
-            <Field text="Usuń Sferę" className="item_Menu"  />
+           <Field callback={() => alert('You have clicked on this element')} text="Pobierz Sferę" className="item_Menu"  />
+           <Field callback={() => alert('You have clicked on this element')} text="Udostępnij" className="item_Menu"  />
+           <Field callback={() => alert('You have clicked on this element')} text="Utwórz spacer" className="item_Menu"  />
+           <Field callback={() => alert('You have clicked on this element')} text="Zmień nazwę" className="item_Menu"  />
+           <Field callback={() => alert('You have clicked on this element')} text="Usuń Sferę" className="item_Menu"  />
     </div>
     );
 });
