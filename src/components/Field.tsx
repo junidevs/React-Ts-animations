@@ -1,5 +1,4 @@
 import { FC } from 'react';
-
 interface Props{
     text:string;
     className:string;

@@ -1,5 +1,6 @@
 import  {FC , Fragment ,ReactNode ,Dispatch, SetStateAction ,lazy  , useEffect ,createRef} from 'react';
 import testImage from '../styles/test.png';
+import { Toggle } from '../helpers/helpers'
 const ModalMenu = lazy(() => import('./ModalMenu'));
 
 interface Props {
@@ -10,18 +11,12 @@ interface Props {
 
 const PanoBox:FC<Props> = ({setVisible , visible}) =>{
   const divRef = createRef<HTMLDivElement>();
+  let counter:number = 0;
+  let timeout:number = 400;
 
-  useEffect(()=>{
-    //console.log(divRef.current)
-   if(visible){
-     //console.log('visible')
-     divRef.current?.classList.remove('modal_absolute_unvisible');
-     divRef.current?.classList.add('modal_absolute');
-   }
-   else {
-     divRef.current?.classList.remove('modal_absolute');
-     divRef.current?.classList.add('modal_absolute_unvisible');
- }
+  useEffect(()=>{ 
+    //render tylko w przypadku zmiany zmiennej visible
+    Toggle({visible, divRef , counter , timeout ,setVisible});
   },[visible])
 
   return(
@@ -32,9 +27,7 @@ const PanoBox:FC<Props> = ({setVisible , visible}) =>{
           <div className="dot_Menu_Container" onClick={() => setVisible(!visible)}>
             <span className="dot_Menu_Item"></span>
           </div>
-
-             <ModalMenu ref={divRef}/>
-  
+             <ModalMenu  ref={divRef}/>
         </div>
     </Fragment>
   );

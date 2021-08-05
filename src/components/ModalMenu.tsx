@@ -1,13 +1,9 @@
 import {forwardRef} from 'react';
 import Field from './Field'
 
-interface Props{
-    //divRef:HTMLDivElement
-}
 export type Ref = HTMLDivElement | null;
 
-const ModalMenu =forwardRef<Ref, Props>((props, divRef) => {
-    console.log('divREFF',divRef);
+const ModalMenu =forwardRef<Ref>(({}, divRef) => {
 return(
     <div ref={divRef} className="modal_absolute_unvisible">
            <Field callback={() => alert('You have clicked on this element')} text="Pobierz Sferę" className="item_Menu"  />

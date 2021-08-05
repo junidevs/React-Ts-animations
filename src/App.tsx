@@ -1,4 +1,4 @@
-import {FC , Fragment , useState  , useEffect , lazy ,Suspense ,  } from 'react';
+import {FC , Fragment , useState  , lazy ,Suspense ,  } from 'react';
 const PanoBox = lazy(() => import('./components/PanoBox'));
 
 const App:FC = () =>{
