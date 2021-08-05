@@ -12,12 +12,15 @@ const PanoBox:FC<Props> = ({setVisible , visible}) =>{
   const divRef = createRef<HTMLDivElement>();
 
   useEffect(()=>{
-    console.log(divRef)
+    console.log(divRef.current)
     if(visible){
       console.log('visible')
+      divRef.current?.classList.add('modal_absolute');
     }
-    else console.log('Not visible')
+    else divRef.current?.classList.remove('modal_absolute_unvisible');
+
   },[visible,divRef])
+
   return(
     <Fragment>
         <div className="box_Container">

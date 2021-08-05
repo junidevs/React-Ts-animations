@@ -9,7 +9,7 @@ export type Ref = HTMLDivElement | null;
 const ModalMenu =forwardRef<Ref, Props>((props, divRef) => {
     console.log('divREFF',divRef);
 return(
-    <div ref={divRef} className="modal_absolute">
+    <div ref={divRef} className="modal_absolute_unvisible">
            <Field text="Pobierz Sferę" className="item_Menu"  />
             <Field text="Udostępnij" className="item_Menu"  />
             <Field text="Utwórz spacer" className="item_Menu"  />
